@@ -10,11 +10,6 @@ namespace WpfApp6
 {
     public class VM:INotifyPropertyChanged
     {
-        //public Store store { get; set; }
-
-        //public string label => store.Txt;
-       
-
         public string name;
         public string Name
         {
@@ -31,9 +26,6 @@ namespace WpfApp6
         public ICommand command { get; set; }
         public VM()
         {
-            //store = new Store() { Txt="Ramesh"};
-            //store.TxtChanged += OnTextChanged;
-
             Name = "Ramesh";
             command = new Command(executeMethod, canExecuteMethod) ;
         }

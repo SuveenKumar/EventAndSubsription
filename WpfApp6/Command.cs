@@ -10,14 +10,9 @@ namespace WpfApp6
     public class Command : ICommand
     {
         public event EventHandler CanExecuteChanged;
-         Action<object> executeMethod;
+        Action<object> executeMethod;
         Func<object, bool> canexecuteMethod;
-
-
         public bool CanExecute(object parameter) => true;
-
-  //     public Store store;
-
         public Command(Action<object> executeMethod,Func<object, bool> canexecuteMethod)
         {
             this.executeMethod = executeMethod;
@@ -27,11 +22,6 @@ namespace WpfApp6
         public void Execute(object parameter)
         {
             executeMethod(parameter);
-        }
-
-        protected void OnCanExecuteChanged()
-        {
-            CanExecuteChanged?.Invoke(this, new EventArgs());
         }
     }
 }
