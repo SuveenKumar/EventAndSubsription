@@ -10,15 +10,50 @@ namespace WpfApp6
 {
     public class VM:INotifyPropertyChanged
     {
-        public Store store { get; set; }
+        //public Store store { get; set; }
 
-        public string label => store.Txt;
+        //public string label => store.Txt;
+       
+
+        public string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+                OnPropertyChanged(nameof(Name));
+            }
+        }
         public ICommand command { get; set; }
         public VM()
         {
-            store = new Store() { Txt="Ramesh"};
-            store.TxtChanged += OnTextChanged;
-            command = new Command(store);
+            //store = new Store() { Txt="Ramesh"};
+            //store.TxtChanged += OnTextChanged;
+
+            Name = "Ramesh";
+            command = new Command(executeMethod, canExecuteMethod) ;
+        }
+
+        public bool canExecuteMethod(object parameter)
+        {
+            return true;
+        }
+
+        
+        public void executeMethod(object parameter)
+        {
+            if (Name != "Ramesh")
+            {
+                Name = "Ramesh";
+            }
+            else
+            {
+                Name = "Suresh";
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -31,10 +66,7 @@ namespace WpfApp6
             }
         }
 
-        private void OnTextChanged()
-        {
-            OnPropertyChanged(nameof(label));
-        }
+       
 
     }
 }
