@@ -10,7 +10,7 @@
         <local:VM/>
     </Window.DataContext>
     <Grid>
-        <Label Content="{Binding label}" FontSize="100"/>
+        <Label Content="{Binding Name}" FontSize="100"/>
         <Button Command="{Binding command}" Height="100" Width="100" Content="Click"/>
     </Grid>
 </Window>
